@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
     private SurfaceView cameraPreview;
     private Camera camera;
     private TextView motionMessage;
+    private TextView movementCalculated; // Toegevoegd voor het weergeven van de beweging berekende waarde
     private TextToSpeech textToSpeech;
     private boolean motionDetected = false;
     private static final int CAMERA_PERMISSION_REQUEST_CODE = 200;
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
         setContentView(R.layout.activity_main);
         cameraPreview = findViewById(R.id.camera_preview);
         motionMessage = findViewById(R.id.motion_message);
+//        movementCalculated = findViewById(R.id.movement_calculated); // Initialiseer de beweging berekende waarde TextView
 
         // Initialize TextToSpeech
         textToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
@@ -104,7 +106,10 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
             int movement = calculateMovement(previousFrameData, currentFrameData);
             Log.d(TAG, "Movement calculated: " + movement);
 
-            if (movement > 30000000) { // Beweging bij een waarde groter dan 30.000.000
+            // Weergave van de beweging berekende waarde
+            movementCalculated.setText("Movement calculated: " + movement);
+
+            if (movement > 30000000) { // Meer dan 30.000.000 betekent beweging
                 if (!motionDetected) {
                     motionDetected = true;
                     displayMotionMessage();
@@ -134,7 +139,7 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
 
     private void displayMotionMessage() {
         motionMessage.setVisibility(TextView.VISIBLE);
-        String message = "🎉 Welkom Bij Breda Robotics! 🎉";
+        String message = "🎉 Beweging gedetecteerd! 🎉";
         textToSpeech.speak(message, TextToSpeech.QUEUE_FLUSH, null, null);
         Log.d(TAG, "Motion detected and message displayed.");
     }
