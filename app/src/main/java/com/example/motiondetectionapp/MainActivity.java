@@ -40,13 +40,11 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
 
         // Initialize TextToSpeech
         textToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
-
             @Override
             public void onInit(int status) {
                 if (status != TextToSpeech.ERROR) {
                     textToSpeech.setLanguage(Locale.UK);
                 }
-
             }
         });
 
@@ -105,10 +103,8 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
             // Vergelijk de laatste twee frames voor beweging
             int movement = calculateMovement(previousFrameData, currentFrameData);
             Log.d(TAG, "Movement calculated: " + movement);
-            int digitCount = String.valueOf(movement).length();
-            Log.d(TAG, "Movement digit count: " + digitCount);
 
-            if (digitCount >= 8) { // Meer dan 7 cijfers betekent beweging
+            if (movement > 30000000) { // Beweging bij een waarde groter dan 30.000.000
                 if (!motionDetected) {
                     motionDetected = true;
                     displayMotionMessage();
@@ -138,7 +134,7 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
 
     private void displayMotionMessage() {
         motionMessage.setVisibility(TextView.VISIBLE);
-        String message = "Beweging gedetecteerd!";
+        String message = "🎉 Welkom Bij Breda Robotics! 🎉";
         textToSpeech.speak(message, TextToSpeech.QUEUE_FLUSH, null, null);
         Log.d(TAG, "Motion detected and message displayed.");
     }

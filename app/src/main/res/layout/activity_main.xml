@@ -1,22 +1,3 @@
-<!--<?xml version="1.0" encoding="utf-8"?>-->
-<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--    xmlns:tools="http://schemas.android.com/tools"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="match_parent"-->
-<!--    tools:context=".MainActivity">-->
-
-<!--    <TextView-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Hello World!"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-
-<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -27,14 +8,34 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <!-- TextView to display message -->
+    <!-- TextView to show motion message -->
     <TextView
         android:id="@+id/motion_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Beweging gedetecteerd!"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="🎉 Welkom Bij Breda Robotics! 🎉"
         android:textSize="24sp"
+        android:textColor="#FF0000"
+        android:background="#FFFFFF"
+        android:padding="16dp"
         android:visibility="gone"
-        android:layout_centerInParent="true"
-        android:textColor="#FF0000"/>
+        android:gravity="center"/>
+
+    <!-- de framse calculated getal -->
+<!--    <TextView-->
+<!--        android:id="@+id/movement_calculated"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/motion_message"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:text="Movement calculated: 0"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textColor="#000000"-->
+<!--        android:background="#FFFFFF"-->
+<!--        android:padding="16dp"-->
+<!--        android:gravity="center"/>-->
+
 </RelativeLayout>
