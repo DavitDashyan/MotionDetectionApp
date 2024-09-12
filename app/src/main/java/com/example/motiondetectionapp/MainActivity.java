@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
 
         // Initialize TextToSpeech
         textToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
+
             @Override
             public void onInit(int status) {
                 if (status != TextToSpeech.ERROR) {
