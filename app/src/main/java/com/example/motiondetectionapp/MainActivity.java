@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
                 if (status != TextToSpeech.ERROR) {
                     textToSpeech.setLanguage(Locale.UK);
                 }
+
             }
         });
 
